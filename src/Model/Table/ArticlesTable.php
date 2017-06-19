@@ -35,7 +35,7 @@ class ArticlesTable extends Table
         $this->setTable('articles');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
-
+        $this->hasMany('Comments');
         $this->addBehavior('Timestamp');
     }
 

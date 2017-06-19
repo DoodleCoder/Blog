@@ -27,3 +27,25 @@ get(id) is used to get a particular tuple.
 
 compact(ABC) returns an array with keys-ABC and values-<value of ABC>
 
+comments foreign key to article
+In CommentsTable add $this->belongsTo('Articles');
+In ArticlesTable add $this->hasMany('Comments');
+
+In view.ctp
+<?php
+	echo $this->Form->create(null,['url' => ['controller' => 'Comments','action' => 'add']]);	  //direct to CommentsController and to add fn
+	echo $this->Form->control('Write A Comment', ['rows' => '3','name' => 'content']);       //name as the table name in DB
+?>
+	<input type="hidden" name="article_id" value='<?= $article->id ?>'>  		  //sending article_id along 
+<?php
+	echo $this->Form->button(__('Post Comment'));
+	echo $this->Form->end();
+?>
+
+To get the user id:
+$variable->user_id = $this->Auth->user('id');
+*must have the user_id column in the table.
+
+redirect back to the page by:
+return $this->redirect(['controller'=>'Articles', 'action' => 'view', $comment->article_id]);
+**you take article_id when calling and make sure you have a column in the table.

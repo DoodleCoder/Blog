@@ -35,7 +35,7 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
+        $this->hasMany('Comments');
         $this->addBehavior('Timestamp');
     }
 

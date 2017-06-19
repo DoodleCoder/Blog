@@ -37,8 +37,9 @@ class ArticlesController extends AppController
      */
     public function view($id = null)
     {
-        $article = $this->Articles->get($id);
+        $article = $this->Articles->get($id,['contain' => ['Comments','Comments.Users']]);
         $this->set(compact('article'));
+        
     }
 
     /**
