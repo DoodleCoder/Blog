@@ -1,0 +1,29 @@
+XAMPP : DB and APACHE
+
+composer self-update && composer create-project --prefer-dist cakephp/app blog
+
+change the datasource details : 
+user-root
+pass-''
+port-3307
+
+run server - bin\cake server
+
+edit database
+
+bin\cake bake model <TableName>
+
+bin\cake bake controller <TableName>
+
+object sent to next view is mentioned in the controller.
+
+instead of {% %} we use <?=  ?>
+
+set() is used to show the obj to the front-end 
+
+find('all') is used to obtain all the tuples.
+
+get(id) is used to get a particular tuple.
+
+compact(ABC) returns an array with keys-ABC and values-<value of ABC>
+
